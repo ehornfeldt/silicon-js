@@ -1,6 +1,37 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 const FAQ = () => {
+  const [faqItems, setFaqItems] = useState([]);
+
+  const getFaq = async () => {
+    const faqs = await fetch(
+      "https://win24-assignment.azurewebsites.net/api/faq"
+    );
+    const data = await faqs.json();
+    setFaqItems(data);
+  };
+
+  useEffect(() => {
+    getFaq();
+  }, []);
+
+  const toogleAnswer = (index, e) => {
+    const questionCard = e.currentTarget;
+    const icon = questionCard.querySelector(".btn-expand i");
+    const button = questionCard.querySelector(".btn-expand");
+    if (questionCard.classList.contains("open")) {
+      questionCard.classList.remove("open");
+      icon.classList.remove("fa-chevron-up");
+      icon.classList.add("fa-chevron-down");
+      button.classList.remove("expanded");
+      return;
+    }
+    questionCard.classList.add("open");
+    icon.classList.add("fa-chevron-up");
+    icon.classList.remove("fa-chevron-down");
+    button.classList.add("expanded");
+  };
+
   return (
     <section id="faq">
       <div className="container">
@@ -15,53 +46,23 @@ const FAQ = () => {
           </p>
         </div>
         <div className="questions">
-          <div className="question">
-            <p>Is any of my personal information stored in the App?</p>
-            <div className="btn-expand">
-              <i className="fa-sharp fa-regular fa-chevron-down"></i>
-            </div>
-          </div>
-          <div className="question-expanded">
-            <div className="question-e">
-              <p>What formats can I download my transaction history in?</p>
-              <div className="btn-expand expanded">
-                <i className="fa-sharp fa-regular fa-chevron-up"></i>
+          {faqItems.map((item, index) => (
+            <div
+              className="question-card"
+              key={index}
+              onClick={(event) => toogleAnswer(index, event)}
+            >
+              <div className="question">
+                <p>{item.title}</p>
+                <div className="btn-expand">
+                  <i className="fa-sharp fa-regular fa-chevron-down"></i>
+                </div>
+              </div>
+              <div className="answer">
+                <p className="expandable">{item.content}</p>
               </div>
             </div>
-            <p className="answer">
-              Nunc duis id aenean gravida tincidunt eu, tempor ullamcorper.
-              Viverra aliquam arcu, viverra et, cursus. Aliquet pretium cursus
-              adipiscing gravida et consequat lobortis arcu velit. Nibh pharetra
-              fermentum duis accumsan lectus non. Massa cursus molestie lorem
-              scelerisque pellentesque. Nisi, enim, arcu purus gravida
-              adipiscing euismod montes, duis egestas. Vehicula eu etiam quam
-              tristique tincidunt suspendisse ut consequat.
-            </p>
-          </div>
-          <div className="question">
-            <p>Can I schedule future transfers?</p>
-            <div className="btn-expand">
-              <i className="fa-sharp fa-regular fa-chevron-down"></i>
-            </div>
-          </div>
-          <div className="question">
-            <p>When can I use Banking App services?</p>
-            <div className="btn-expand">
-              <i className="fa-sharp fa-regular fa-chevron-down"></i>
-            </div>
-          </div>
-          <div className="question">
-            <p>Can I create my own password that is easy for me to remember?</p>
-            <div className="btn-expand">
-              <i className="fa-sharp fa-regular fa-chevron-down"></i>
-            </div>
-          </div>
-          <div className="question">
-            <p>What happens if I forget or lose my password?</p>
-            <div className="btn-expand">
-              <i className="fa-sharp fa-regular fa-chevron-down"></i>
-            </div>
-          </div>
+          ))}
         </div>
         <div className="contact">
           <div className="phone">
