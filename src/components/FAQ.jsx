@@ -15,8 +15,8 @@ const FAQ = () => {
     getFaq();
   }, []);
 
-  const toogleAnswer = (index, e) => {
-    const questionCard = e.currentTarget;
+  const toogleAnswer = (e) => {
+    const questionCard = e.currentTarget; //fick tipset om currentTarget från chatGPT
     const icon = questionCard.querySelector(".btn-expand i");
     const button = questionCard.querySelector(".btn-expand");
     if (questionCard.classList.contains("open")) {
@@ -50,7 +50,7 @@ const FAQ = () => {
             <div
               className="question-card"
               key={index}
-              onClick={(event) => toogleAnswer(index, event)}
+              onClick={(event) => toogleAnswer(event)}
             >
               <div className="question">
                 <p>{item.title}</p>
