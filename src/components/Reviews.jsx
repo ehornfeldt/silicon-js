@@ -20,7 +20,7 @@ const Reviews = () => {
       <div className="container">
         <h1>Clients are loving our app</h1>
         {reviewItems.map((item, index) => (
-          <div className="review-content">
+          <div className="review-content" key={index}>
             <i className="fa-solid fa-square-quote"></i>
             <div className="review">
               <div className="stars">

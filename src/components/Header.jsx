@@ -1,12 +1,28 @@
-import React from "react";
+import React, { useState } from "react";
 
 const header = () => {
+  const [mode, setMode] = useState("light");
+
+  const toogleMode = () => {
+    console.log("TOOGLE", mode);
+    if (mode == "light") {
+      setMode("dark");
+      document.documentElement.setAttribute("data-theme", "dark");
+    } else {
+      setMode("light");
+      document.documentElement.setAttribute("data-theme", "light");
+    }
+  };
+
   return (
     <div>
       <header>
         <div className="container">
           <a href="index.html">
-            <img src="./src/assets/images/silicon-logo.svg" alt="Siliocn Logotype" />
+            <img
+              src="./src/assets/images/silicon-logo.svg"
+              alt="Siliocn Logotype"
+            />
           </a>
           <nav className="navbar">
             <a className="nav-link" href="#">
@@ -18,7 +34,7 @@ const header = () => {
             <span className="toogle-label">Dark mode</span>
             {/* Toogle switch from w3school */}
             <label className="switch">
-              <input type="checkbox" />
+              <input type="checkbox" onClick={toogleMode} />
               <span className="slider round"></span>
             </label>
           </div>
