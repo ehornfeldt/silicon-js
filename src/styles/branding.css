@@ -1,16 +1,6 @@
 :root {
   --primary-color: #6366f1;
 
-  --color-success: #22c55e;
-  --color-warning: #ffba08;
-  --color-error: #ef4444;
-  --color-info: #4c82f7;
-
-  --container-padding: 1rem;
-  --transition-time: all 0.2s;
-}
-
-[data-theme="light"] {
   --color-dark: #0b0f19;
   --color-light: #fff;
   --color-grey-100: #f3f6ff;
@@ -21,19 +11,48 @@
   --color-grey-800: #33354d;
   --color-grey-900: var(--color-dark);
 
+  --color-success: #22c55e;
+  --color-warning: #ffba08;
+  --color-error: #ef4444;
+  --color-info: #4c82f7;
+
+  --container-padding: 1rem;
+  --transition-time: all 0.2s;
+}
+
+[data-theme="light"] {
+  --bg-color: #fff;
+  --odd-bg-color: var(--color-grey-100);
+
+  --nav-link: var(--color-grey-800);
+  --text-color: var(--color-grey-900);
   --text-color-dark: #131022;
   --text-color-darkgrey: #585c7b;
+  --role: var(--color-grey-700);
+  --role: var(--color-grey-500);
 
   --primary-hover: #575adf;
   --dark-hover: #2d2941;
   --color-border: var(--color-grey-300);
   --color-features-bg: rgba(99, 102, 241, 0.08);
 
+  --bg-circle-btn1: var(--color-light);
+  --bg-circle-btn2: var(--color-grey-100);
+  --circle-btn-text1: var(--color-dark);
+  --circle-btn-text2: var(--color-grey-800);
+  --bg-faq: rgba(255, 255, 255, 0);
+  --bg-review-card: #fff;
+  --bg-form: #fff;
+
   --box-shadow: rgb(234, 234, 234);
   --form-border: #d4d7e5;
 }
 [data-theme="dark"] {
-  --color-dark: #fff;
+  --bg-color: var(--color-grey-900);
+  --odd-bg-color: rgba(255, 255, 255, 0.04);
+  --text-color: #fff;
+
+  /* --color-dark: #fff;
   --color-light: #0b0f19;
   --color-grey-100: #33354d;
   --color-grey-300: #565973;
@@ -41,16 +60,26 @@
   --color-grey-600: #b4b7c9;
   --color-grey-700: #e2e5f1;
   --color-grey-800: #f3f6ff;
-  --color-grey-900: var(--color-dark);
-
+  --color-grey-900: var(--color-dark); */
+  --nav-link: var(--text-color);
   --text-color-dark: #fff;
   --text-color-darkgrey: #585c7b;
+  --author: var(--text-color);
+  --role: var(--color-grey-700);
 
   --primary-hover: #575adf;
   --dark-hover: #2d2941;
-  --color-border: var(--color-grey-300);
+  --color-border: rgba(255, 255, 255, 0.15);
   --color-features-bg: rgba(99, 102, 241, 0.08);
 
-  --box-shadow: rgb(234, 234, 234);
-  --form-border: #d4d7e5;
+  --bg-circle-btn1: rgba(255, 255, 255, 0.05);
+  --bg-circle-btn2: var(--bg-circle-btn1);
+  --circle-btn-text1: #fff;
+  --circle-btn-text2: var(--circle-btn-text1);
+  --bg-faq: rgba(255, 255, 255, 0.04);
+  --bg-review-card: rgba(255, 255, 255, 0.04);
+  --bg-form: rgba(255, 255, 255, 0.02);
+
+  --box-shadow: rgb(28, 28, 28);
+  --form-border: rgba(255, 255, 255, 0.18);
 }

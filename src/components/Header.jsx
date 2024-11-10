@@ -2,14 +2,16 @@ import React, { useState } from "react";
 
 const header = () => {
   const [mode, setMode] = useState("light");
+  const [logo, setLogo] = useState("./src/assets/images/silicon-logo.svg");
 
   const toogleMode = () => {
-    console.log("TOOGLE", mode);
     if (mode == "light") {
       setMode("dark");
+      setLogo("./src/assets/images/silicon-logo-dark.svg");
       document.documentElement.setAttribute("data-theme", "dark");
     } else {
       setMode("light");
+      setLogo("./src/assets/images/silicon-logo.svg");
       document.documentElement.setAttribute("data-theme", "light");
     }
   };
@@ -19,10 +21,7 @@ const header = () => {
       <header>
         <div className="container">
           <a href="index.html">
-            <img
-              src="./src/assets/images/silicon-logo.svg"
-              alt="Siliocn Logotype"
-            />
+            <img src={logo} alt="Siliocn Logotype" />
           </a>
           <nav className="navbar">
             <a className="nav-link" href="#">

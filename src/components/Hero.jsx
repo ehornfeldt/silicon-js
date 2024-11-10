@@ -1,6 +1,32 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 const Hero = () => {
+  const [googlePlay, setGooglePlay] = useState(
+    "./src/assets/images/google-play.svg"
+  );
+  const [appStore, setAppStore] = useState("./src/assets/images/app-store.svg");
+  const [iPhoneFront, setiPhoneFront] = useState(
+    "./src/assets/images/Your-cards-small.jpg"
+  );
+  const [iPhoneBack, setiPhoneBack] = useState(
+    "./src/assets/images/My-budget-small.jpg"
+  );
+  const mode = document.documentElement.getAttribute("data-theme");
+
+  useEffect(() => {
+    if (mode == "light") {
+      setGooglePlay("./src/assets/images/google-play.svg");
+      setAppStore("./src/assets/images/app-store.svg");
+      setiPhoneFront("./src/assets/images/Your-cards-small.jpg");
+      setiPhoneBack("./src/assets/images/My-budget-small.jpg");
+    } else {
+      setGooglePlay("./src/assets/images/google-play-dark.svg");
+      setAppStore("./src/assets/images/app-store-dark.svg");
+      setiPhoneFront("./src/assets/images/Your-cards-small-dark.jpg");
+      setiPhoneBack("./src/assets/images/My-budget-small-dark.jpg");
+    }
+  }, [document.documentElement.getAttribute("data-theme")]);
+
   return (
     <section id="hero">
       <div className="container">
@@ -14,10 +40,10 @@ const Hero = () => {
           </p>
           <div className="buttons">
             <a className="btn btn-app" href="#">
-              <img src="./src/assets/images/app-store.svg" alt="Go to App Store" />
+              <img src={appStore} alt="Go to App Store" />
             </a>
             <a className="btn btn-app" href="#">
-              <img src="./src/assets/images/google-play.svg" alt="Go to Google Play" />
+              <img src={googlePlay} alt="Go to Google Play" />
             </a>
           </div>
           <a href="#" className="discover-more">
@@ -30,12 +56,12 @@ const Hero = () => {
         <div className="images">
           <img
             className="img-back"
-            src="./src/assets/images/My-budget-small.jpg"
+            src={iPhoneBack}
             alt="An iPhone showing the interface of my budget"
           />
           <img
             className="img-front"
-            src="./src/assets/images/Your-cards-small.jpg"
+            src={iPhoneFront}
             alt="An iPhone showing the interface of my cards"
           />
         </div>

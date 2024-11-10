@@ -34,7 +34,7 @@ const Reviews = () => {
                 <img src={item.avatarUrl} alt="Avatar of Fannie" />
                 <div className="author">
                   <p className="name">{item.author}</p>
-                  <p className="role">{item.role}</p>
+                  <p className="role">{item.jobRole}</p>
                 </div>
               </div>
             </div>

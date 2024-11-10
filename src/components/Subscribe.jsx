@@ -8,7 +8,6 @@ const Subscribe = () => {
 
     if (email.trim() === "") {
       validate();
-      console.log("error class added");
       return;
     }
   };

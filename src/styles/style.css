@@ -15,7 +15,7 @@ body {
   font-weight: 400;
   font-style: normal;
   font-size: 16px;
-  background-color: var(--color-light);
+  background-color: var(--bg-color);
 }
 
 h1,
@@ -23,7 +23,7 @@ h2,
 h4,
 h5 {
   font-weight: 800;
-  color: var(--color-grey-900);
+  color: var(--text-color);
 }
 h1 {
   font-size: 40px;
@@ -116,7 +116,7 @@ input::placeholder {
 }
 
 .nav-link {
-  color: var(--color-grey-800);
+  color: var(--nav-link);
   font-weight: 600;
   text-decoration: none;
 }
@@ -129,6 +129,9 @@ input::placeholder {
   display: none;
 }
 
+header {
+  background-color: rgba(241, 244, 253, 0.07);
+}
 header .container {
   display: grid;
   grid-template-columns: 1fr auto auto;
@@ -136,6 +139,9 @@ header .container {
   align-items: center;
   padding-top: 1rem;
   padding-bottom: 1rem;
+  .toogle-label {
+    color: var(--color-grey-700);
+  }
 }
 
 #hero {
@@ -265,7 +271,7 @@ header .container {
 }
 
 #how-does-it-work {
-  background-color: var(--color-grey-100);
+  background-color: var(--odd-bg-color);
   padding-block: 4rem;
   .container {
     display: flex;
@@ -335,7 +341,7 @@ header .container {
 }
 
 #reviews {
-  background-color: var(--color-grey-100);
+  background-color: var(--odd-bg-color);
   padding-block: 4rem;
   .container {
     display: grid;
@@ -343,7 +349,7 @@ header .container {
     gap: 2rem;
 
     .review-content {
-      background-color: var(--color-light);
+      background-color: var(--bg-review-card);
       border-radius: 8px;
       padding: 40px 24px 24px 24px;
       box-shadow: 2px 2px 5px var(--box-shadow);
@@ -380,8 +386,11 @@ header .container {
         .name {
           font-weight: 800;
         }
+        .name {
+          color: var(--author);
+        }
         .role {
-          color: var(--color-grey-500);
+          color: var(--role);
           font-size: 14px;
         }
       }
@@ -411,6 +420,7 @@ header .container {
     }
     .question-card {
       padding: 1rem;
+      background-color: var(--bg-faq);
       border-radius: 8px;
       box-shadow: 2px 2px 10px var(--box-shadow);
     }
@@ -421,7 +431,7 @@ header .container {
       cursor: pointer;
       p {
         font-weight: 800;
-        color: var(--color-grey-900);
+        color: var(--text-color);
       }
     }
     .answer {
@@ -447,7 +457,7 @@ header .container {
 
 #subscribe {
   .container {
-    background-color: var(--color-grey-100);
+    background-color: var(--odd-bg-color);
     border-radius: 8px;
     padding-block: 4rem;
     display: flex;
@@ -468,6 +478,9 @@ header .container {
       display: flex;
       justify-content: center;
       position: relative;
+      input {
+        background-color: var(--bg-form);
+      }
       button {
         border-radius: 0 8px 8px 0;
       }
@@ -582,7 +595,7 @@ footer {
         gap: 1rem;
         .phone,
         .chat {
-          border: 1px solid var(--color-grey-300);
+          border: 1px solid var(--color-border);
           border-radius: 8px;
           padding: 24px;
         }
@@ -717,7 +730,7 @@ footer {
         justify-content: flex-start;
         .phone,
         .chat {
-          border: 1px solid var(--color-grey-300);
+          border: 1px solid var(--color-border);
           border-radius: 8px;
           padding: 24px;
         }
