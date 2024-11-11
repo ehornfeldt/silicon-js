@@ -69,6 +69,7 @@ button {
   align-items: center;
   flex-shrink: 0;
   color: var(--circle-btn-text2);
+  transition: background-color 0.3s ease;
 }
 .expanded {
   background-color: var(--primary-color);

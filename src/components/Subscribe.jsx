@@ -2,6 +2,14 @@ import React, { useState } from "react";
 
 const Subscribe = () => {
   const [email, setEmail] = useState("");
+  const [isError, setError] = useState(false); //tips från chatGPT
+
+  const handleInput = (e) => {
+    setEmail(e.target.value);
+    if (isError && e.target.value.trim() !== "") {
+      setError(false);
+    }
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -13,11 +21,9 @@ const Subscribe = () => {
   };
 
   const validate = () => {
-    const emailInput = document.querySelector("#email-input");
-    const errorLabel = document.querySelector("#error-label");
-    emailInput.classList.add("error");
-    errorLabel.classList.add("error-visible")
+    setError(true);
   };
+
   return (
     <section id="subscribe">
       <div className="container">
@@ -29,26 +35,34 @@ const Subscribe = () => {
           </h4>
         </div>
         <div className="form-group">
-             <form
-          id="subscribe-form"
-          className="subscribe-form"
-          onSubmit={handleSubmit}
-        >
-          <i className="fa-light fa-envelope"></i>
-          <input
-            id="email-input"
-            placeholder="Your email"
-            type="Email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-          />
-          <button id="subscribe-btn" className="btn btn-primary" type="submit">
-            Subscribe
-          </button>
-        </form>
-          <p id="error-label" className="error-label">Email is required</p>
+          <form
+            id="subscribe-form"
+            className="subscribe-form"
+            onSubmit={handleSubmit}
+          >
+            <i className="fa-light fa-envelope"></i>
+            <input
+              id="email-input"
+              placeholder="Your email"
+              type="Email"
+              value={email}
+              onChange={handleInput}
+              className={isError ? "error" : ""}
+            />
+            <button
+              id="subscribe-btn"
+              className="btn btn-primary"
+              type="submit"
+            >
+              Subscribe
+            </button>
+          </form>
+          {isError && (
+            <p id="error-label" className="error-label">
+              Email is required
+            </p>
+          )}
         </div>
-       
       </div>
     </section>
   );

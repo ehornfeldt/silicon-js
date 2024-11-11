@@ -80,10 +80,6 @@ input::placeholder {
   background-color: rgba(239, 68, 68, 0.12);
   border-radius: 4px;
   font-size: 12px;
-  display: none;
-}
-.error-visible {
-  display: block;
 }
 
 .icon {
