@@ -33,6 +33,7 @@ button {
   background-color: transparent;
   border: none;
   font-size: 2rem;
+  color: var(--text-color);
 }
 
 .btn-circle {

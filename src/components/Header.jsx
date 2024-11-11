@@ -1,18 +1,15 @@
 import React, { useState } from "react";
 
-const header = () => {
-  const [mode, setMode] = useState("light");
+const Header = ({ mode, setMode }) => {
   const [logo, setLogo] = useState("./src/assets/images/silicon-logo.svg");
 
   const toogleMode = () => {
     if (mode == "light") {
       setMode("dark");
       setLogo("./src/assets/images/silicon-logo-dark.svg");
-      document.documentElement.setAttribute("data-theme", "dark");
     } else {
       setMode("light");
       setLogo("./src/assets/images/silicon-logo.svg");
-      document.documentElement.setAttribute("data-theme", "light");
     }
   };
 
@@ -51,4 +48,4 @@ const header = () => {
   );
 };
 
-export default header;
+export default Header;

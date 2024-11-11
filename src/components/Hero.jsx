@@ -1,31 +1,20 @@
 import React, { useEffect, useState } from "react";
 
-const Hero = () => {
+const Hero = (mode) => {
   const [googlePlay, setGooglePlay] = useState(
     "./src/assets/images/google-play.svg"
   );
   const [appStore, setAppStore] = useState("./src/assets/images/app-store.svg");
-  const [iPhoneFront, setiPhoneFront] = useState(
-    "./src/assets/images/Your-cards-small.jpg"
-  );
-  const [iPhoneBack, setiPhoneBack] = useState(
-    "./src/assets/images/My-budget-small.jpg"
-  );
-  const mode = document.documentElement.getAttribute("data-theme");
 
   useEffect(() => {
-    if (mode == "light") {
+    if (mode.mode == "light") {
       setGooglePlay("./src/assets/images/google-play.svg");
       setAppStore("./src/assets/images/app-store.svg");
-      setiPhoneFront("./src/assets/images/Your-cards-small.jpg");
-      setiPhoneBack("./src/assets/images/My-budget-small.jpg");
     } else {
       setGooglePlay("./src/assets/images/google-play-dark.svg");
       setAppStore("./src/assets/images/app-store-dark.svg");
-      setiPhoneFront("./src/assets/images/Your-cards-small-dark.jpg");
-      setiPhoneBack("./src/assets/images/My-budget-small-dark.jpg");
     }
-  }, [document.documentElement.getAttribute("data-theme")]);
+  }, [mode]);
 
   return (
     <section id="hero">
@@ -56,12 +45,12 @@ const Hero = () => {
         <div className="images">
           <img
             className="img-back"
-            src={iPhoneBack}
+            src="./src/assets/images/Your-cards-small.svg"
             alt="An iPhone showing the interface of my budget"
           />
           <img
             className="img-front"
-            src={iPhoneFront}
+            src="./src/assets/images/My-budget-small.svg"
             alt="An iPhone showing the interface of my cards"
           />
         </div>
