@@ -24,9 +24,12 @@ const Reviews = () => {
             <i className="fa-solid fa-square-quote"></i>
             <div className="review">
               <div className="stars">
-                {/* Nedan två rader från chatGPT */}
+                {/* Nedan fyra rader från chatGPT */}
                 {Array.from({ length: item.starRating }).map((_, i) => (
                   <i key={i} className="fa-solid fa-star"></i>
+                ))}
+                {Array.from({ length: 5 - item.starRating }).map((_, i) => (
+                  <i key={i} className="fa-light fa-star"></i>
                 ))}
               </div>
               <p>{item.comment}</p>
